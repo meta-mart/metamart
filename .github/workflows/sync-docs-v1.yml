@@ -1,0 +1,99 @@
+
+
+name: Sync publish docs
+on:
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - metamart-docs/**
+  workflow_dispatch:
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Push content
+      id: push_content
+      continue-on-error: true
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.DOCS_V1_SSH_DEPLOY_KEY }}
+      with:
+        source-directory: metamart-docs/content/
+        target-directory: content/
+        destination-github-username: 'meta-mart'
+        destination-repository-name: 'docs-v1'
+        user-email: metamart@trydigitrans.io
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+
+    - name: Push images
+      id: push_images
+      continue-on-error: true
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.DOCS_V1_SSH_DEPLOY_KEY }}
+      with:
+        source-directory: metamart-docs/images/
+        target-directory: public/images/
+        destination-github-username: 'meta-mart'
+        destination-repository-name: 'docs-v1'
+        user-email: metamart@trydigitrans.io
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+
+    - name: Prepare Digitrans content and partials
+      id: prepare_digitrans
+      continue-on-error: true
+      run: cp -R metamart-docs/content/partials/ metamart-docs/content/v1.5.x/partials
+
+    - name: Push content Digitrans
+      id: push_content_digitrans
+      continue-on-error: true
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.DOCS_DIGITRANS_SSH_DEPLOY_KEY }}
+      with:
+        source-directory: metamart-docs/content/v1.5.x
+        target-directory: content/
+        destination-github-username: 'meta-mart'
+        destination-repository-name: 'docs-digitrans'
+        user-email: digitrans@trydigitrans.io
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+
+    - name: Push images Digitrans
+      id: push_images_digitrans
+      continue-on-error: true
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.DOCS_DIGITRANS_SSH_DEPLOY_KEY }}
+      with:
+        source-directory: metamart-docs/images/
+        target-directory: public/images/
+        destination-github-username: 'meta-mart'
+        destination-repository-name: 'docs-digitrans'
+        user-email: digitrans@trydigitrans.io
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+
+    - name: Slack on Failure
+      if: ${{ steps.push_content.outcome != 'success' || steps.push_content_digitrans.outcome != 'success' || steps.prepare_digitrans.outcome != 'success' }}
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload: |
+          {
+            "text": "🔥 Docs sync failed! 🔥"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_MONITOR_SLACK_WEBHOOK }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+    - name: Force failure
+      if: steps.push_content.outcome != 'success'
+      run: |
+        exit 1

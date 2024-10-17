@@ -1,0 +1,29 @@
+
+# Avoid running Playwright CI on each PR opened which does not modify Java or UI code
+# https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-
+# of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks
+name: Postgresql PR Playwright E2E Tests
+
+on:
+  pull_request_target:
+    types:
+      - labeled
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - metamart-docs/**
+      - .github/**
+      - metamart-dist/**
+      - docker/**
+
+jobs:
+  playwright-ci-postgresql:
+    runs-on: ubuntu-latest
+    strategy:
+    fail-fast: false
+    matrix:
+      shardIndex: [1, 2]
+      shardTotal: [2]
+    steps:
+      - run: 'echo "Step is not required"'

@@ -1,0 +1,36 @@
+{
+  "$id": "https://meta-mart.org/schema/metadataIngestion/application.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MetaMartApplicationConfig",
+  "description": "MetaMart Ingestion Framework definition for Applications, i.e., the YAML shape we require.",
+  "javaType": "org.metamart.schema.metadataIngestion.MetaMartAppConfig",
+  "type": "object",
+  "properties": {
+    "workflowConfig": {
+      "$ref": "workflow.json#/definitions/workflowConfig",
+      "description": "General Workflow configuration, such as the MetaMart server connection and logging level"
+    },
+    "sourcePythonClass": {
+      "description": "Source Python Class Name to run the application",
+      "type": "string"
+    },
+    "appConfig": {
+      "$ref": "../entity/applications/configuration/applicationConfig.json#/definitions/appConfig",
+      "description": "External Application configuration"
+    },
+    "appPrivateConfig": {
+      "$ref": "../entity/applications/configuration/applicationConfig.json#/definitions/privateConfig",
+      "description": "External Application Private configuration"
+    },
+    "ingestionPipelineFQN": {
+      "description": "Fully qualified name of ingestion pipeline, used to identify the current ingestion pipeline",
+      "type": "string"
+    },
+    "pipelineRunId": {
+      "description": "Unique identifier of pipeline run, used to identify the current pipeline run",
+      "$ref": "../type/basic.json#/definitions/uuid"
+    }
+  },
+  "required": ["workflowConfig"],
+  "additionalProperties": false
+}

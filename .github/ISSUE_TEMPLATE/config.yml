@@ -1,0 +1,7 @@
+contact_links:
+  - name: Read the docs & troubleshoot
+    url: https://docs.meta-mart.org/
+    about: You can find information on anything related to MetaMart.
+  - name: Chat on Slack
+    url: https://slack.meta-mart.org/
+    about: And get help from the community

@@ -1,0 +1,44 @@
+
+name: Publish Python Packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install Ubuntu related dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y libsasl2-dev unixodbc-dev python3-venv
+      - name: Install and Publish PyPi packages for MetaMart Ingestion
+        env:
+          TWINE_USERNAME: '${{ secrets.TWINE_METAMART_INGESTION_USERNAME }}'
+          TWINE_PASSWORD: '${{ secrets.TWINE_METAMART_INGESTION_PASSWORD }}'
+        run: |
+          python3 -m venv env
+          source env/bin/activate
+          sudo make install_antlr_cli
+          make install_dev generate
+          cd ingestion; \
+            python -m build; \
+            twine check dist/*; \
+            twine upload dist/* --verbose
+      - name: Install and Publish PyPi packages for MetaMart Managed (Airflow) APIs
+        env:
+          TWINE_USERNAME: '${{ secrets.TWINE_METAMART_AIRFLOW_MANAGED_APIS_USERNAME }}'
+          TWINE_PASSWORD: '${{ secrets.TWINE_METAMART_AIRFLOW_MANAGED_APIS_PASSWORD }}'
+        run: |
+          python3 -m venv env
+          source env/bin/activate
+          make install_dev install_apis
+          cd metamart-airflow-apis; \
+            python -m build; \
+            twine check dist/*; \
+            twine upload dist/* --verbose

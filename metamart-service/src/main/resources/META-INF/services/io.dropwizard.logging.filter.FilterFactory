@@ -1,0 +1,2 @@
+org.metamart.service.events.AuditExcludeFilterFactory
+org.metamart.service.events.AuditOnlyFilterFactory

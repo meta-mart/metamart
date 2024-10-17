@@ -1,0 +1,38 @@
+# E2E Labels when source files are changes
+# strings specified in the format of "metamart-ui/**/*[a-zA-Z]*" handles case sensitivity
+
+"e2e:Settings":
+  - "metamart-ui/**/[Ss]ettings/**/*"
+
+"e2e:DataAssets":
+  - "metamart-ui/**/*[dD]atabase*"
+  - "metamart-ui/**/*[tT]able*"
+  - "metamart-ui/**/*[tT]opic*"
+  - "metamart-ui/**/*[dD]ashboard*"
+  - "metamart-ui/**/*[pP]ipeline*"
+  - "metamart-ui/**/*[mM]lmodel*"
+  - "metamart-ui/**/*[cC]ontainer*"
+  - "metamart-ui/**/*[sS]erach[iI]ndex*"
+  - "metamart-ui/**/*[tT]ask*"
+  - "metamart-ui/**/*[sS]earch*"
+  - "metamart-ui/**/*[mM]y[dD]ata*"
+  - "metamart-ui/**/*[eE]xplore*"
+  - "metamart-ui/**/*[eE]ntity*"
+
+"e2e:Governance":
+  - "metamart-ui/**/*[gG]lossary*"
+  - "metamart-ui/**/*[tT]ag*"
+  - "metamart-ui/**/*[dD]omain*"
+
+"e2e:Observability":
+  - "metamart-ui/**/*[Aa]lert*"
+  - "metamart-ui/**/*[Ii]ncident[Mm]anager*"
+  - "metamart-ui/**/*[Mm]etric*"
+  - "metamart-ui/**/*[Dd]ata[qQ]uality*"
+  - "metamart-ui/**/*[Dd]ata[Ii]nsight*"
+  - "metamart-ui/**/*[Oo]bservability*"
+
+"e2e:Integration":
+  - "metamart-ui/**/*integration*"
+  - "metamart-ui/**/*[iI]ngestion*"
+  - "metamart-ui/**/*[sS]ervice*"

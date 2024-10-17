@@ -1,0 +1,18 @@
+{
+  "$id": "https://meta-mart.org/schema/auth/emailRequest.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EmailRequest",
+  "description": "This schema defines Email Request containing only Email",
+  "type": "object",
+  "javaType": "org.metamart.schema.auth.EmailRequest",
+  "properties": {
+    "email": {
+      "description": "Login Email",
+      "$ref": "../type/basic.json#/definitions/email"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "email"
+  ]
+}

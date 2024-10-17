@@ -1,0 +1,19 @@
+{
+  "$id": "https://meta-mart.org/schema/api/auth/createPersonalToken.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreatePersonalToken",
+  "description": "Create Personal Access Token Request",
+  "type": "object",
+  "javaType": "org.metamart.schema.auth.CreatePersonalToken",
+  "properties": {
+    "tokenName": {
+      "description": "Name of the Personal Access Token",
+      "type": "string"
+    },
+    "JWTTokenExpiry": {
+      "$ref": "jwtAuth.json#/definitions/JWTTokenExpiry"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["tokenName", "JWTTokenExpiry"]
+}

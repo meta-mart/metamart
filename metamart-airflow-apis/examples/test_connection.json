@@ -1,0 +1,12 @@
+{
+  "serviceConnection": {
+    "config": {
+      "type": "MySQL",
+      "username": "metamart_user",
+      "authType":{
+        "password": "metamart_password"
+        },
+      "hostPort": "localhost:3306"
+    }
+  }
+}

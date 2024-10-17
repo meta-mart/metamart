@@ -1,0 +1,10 @@
+CREATE DATABASE metamart_db;
+CREATE DATABASE airflow_db CHARACTER SET utf8mb4 DIGITRANS utf8mb4_unicode_ci;
+CREATE USER 'metamart_user'@'%' IDENTIFIED BY 'metamart_password';
+CREATE USER 'airflow_user'@'%' IDENTIFIED BY 'airflow_pass';
+GRANT ALL PRIVILEGES ON metamart_db.* TO 'metamart_user'@'%' WITH GRANT OPTION;
+GRANT PROCESS, USAGE ON *.* TO 'metamart_user'@'%';
+GRANT ALL PRIVILEGES ON airflow_db.* TO 'airflow_user'@'%' WITH GRANT OPTION;
+GRANT PROCESS, USAGE ON *.* TO 'metamart_user'@'%';
+FLUSH PRIVILEGES;
+commit;

@@ -1,0 +1,32 @@
+
+name: Maven Postgres Tests CI
+
+on:
+  pull_request_target:
+    types: [labeled, opened, synchronize, reopened]
+    paths-ignore:
+      - "metamart-service/**"
+      - "metamart-spec/src/main/resources/json/schema/**"
+      - "metamart-dist/**"
+      - "metamart-clients/**"
+      - "common/**"
+      - "pom.xml"
+      - "yarn.lock"
+      - "Makefile"
+      - "bootstrap/**"
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+    maven-postgresql-ci:
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            os:
+              - ubuntu-latest
+            node-version:
+              - 18.x
+        steps:
+          - run: 'echo "Step is not required"'

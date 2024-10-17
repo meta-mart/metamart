@@ -1,0 +1,32 @@
+# Label when source files are for UI team
+ui:
+  - "metamart-ui/**/*"
+  - "package.json"
+
+# Label for Devops when source files is in docker or github
+devops:
+  - "docker/**/*"
+  - ".github/**/*"
+
+# Label for backend team
+backend:
+    - "metamart-service/**/*"
+    - "metamart-clients/**/*"
+    - "metamart-dist/**/*"
+    - "metamart-service/**/*"
+    - "metamart-spec/**/*"
+
+# Label for ingestion, when source file is in ingestion or airflow
+ingestion:
+  - "metamart-airflow-apis/**/*"
+  - "ingestion/**/*"
+  - "ingestion-core/**/*"
+
+# Label for documentation , when source file is in docs
+documentation:
+  - "metamart-docs/**/*"
+  - "metamart-docs-v1/**/*"
+
+# Label to help us track spec changes
+spec:
+  - "metamart-spec/**/*"

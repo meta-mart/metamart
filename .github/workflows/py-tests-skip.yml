@@ -1,0 +1,21 @@
+
+name: py-tests
+on:
+  pull_request_target:
+    types: [labeled, opened, synchronize, reopened]
+    paths-ignore:
+      - "ingestion/**"
+      - "metamart-service/**"
+      - "metamart-spec/src/main/resources/json/schema/**"
+
+permissions:
+  contents: read
+
+jobs:
+  py-run-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        py-version: ['3.8', '3.9', '3.10', '3.11']
+    steps:
+      - run: 'echo "Step is not required"'

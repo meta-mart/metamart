@@ -1,0 +1,17 @@
+{
+  "$id": "https://meta-mart.org/schema/security/client/metaMartJWTClientConfig.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "metaMartJWTClientConfig",
+  "description": "metaMartJWTClientConfig security configs.",
+  "type": "object",
+  "javaType": "org.metamart.schema.security.client.MetaMartJWTClientConfig",
+  "properties": {
+    "jwtToken": {
+      "description": "MetaMart generated JWT token.",
+      "type": "string",
+      "format": "password"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["jwtToken"]
+}

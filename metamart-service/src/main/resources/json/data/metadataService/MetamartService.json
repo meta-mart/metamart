@@ -1,0 +1,7 @@
+{
+  "name": "MetaMart",
+  "displayName": "MetaMart Service",
+  "description": "Service Used for creating MetaMart Ingestion Pipelines.",
+  "serviceType": "MetaMart",
+  "provider": "system"
+}

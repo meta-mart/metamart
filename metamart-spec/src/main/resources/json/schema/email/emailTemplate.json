@@ -1,0 +1,24 @@
+{
+  "$id": "https://meta-mart.org/schema/email/emailTemplate.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Email Template",
+  "description": "Schema defining email templates.",
+  "type": "object",
+  "javaType": "org.metamart.schema.email.EmailTemplate",
+  "properties": {
+    "template": {
+      "description": "Template data.",
+      "type": "string"
+    },
+    "placeHolders": {
+      "description": "List of placeholders.",
+      "type": "array",
+      "items": {
+        "$ref": "./emailTemplatePlaceholder.json"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["template", "placeHolders"],
+  "additionalProperties": false
+}
