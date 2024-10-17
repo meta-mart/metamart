@@ -23,7 +23,7 @@ import { ROUTES } from './constants';
 import {
   URL_GITHUB_REPO,
   URL_JOIN_SLACK,
-  URL_OPEN_METADATA_DOCS,
+  URL_META_MART_DOCS,
 } from './URL.constants';
 
 export enum HELP_ITEMS_ENUM {
@@ -55,7 +55,7 @@ export const HELP_ITEMS = [
     key: HELP_ITEMS_ENUM.DOC,
     label: i18n.t('label.doc-plural'),
     icon: IconDoc,
-    link: URL_OPEN_METADATA_DOCS,
+    link: URL_META_MART_DOCS,
     isExternal: true,
   },
   {

@@ -26,7 +26,7 @@ import {
 } from '../../../constants/GlobalSettings.constants';
 import {
   CUSTOM_LOGIN_CONFIG_SERVICE_CATEGORY,
-  OPEN_METADATA,
+  META_MART,
 } from '../../../constants/service-guide.constant';
 import { ServiceCategory } from '../../../enums/service.enum';
 import { LoginConfiguration } from '../../../generated/configuration/loginConfiguration';
@@ -198,7 +198,7 @@ const EditLoginConfiguration = () => {
     <ServiceDocPanel
       activeField={activeField}
       serviceName={CUSTOM_LOGIN_CONFIG_SERVICE_CATEGORY}
-      serviceType={OPEN_METADATA as ServiceCategory}
+      serviceType={META_MART as ServiceCategory}
     />
   );
 

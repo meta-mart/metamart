@@ -12,5 +12,5 @@
  */
 
 export const URL_JOIN_SLACK = 'https://slack.meta-mart.org';
-export const URL_OPEN_METADATA_DOCS = 'https://docs.meta-mart.org/';
+export const URL_META_MART_DOCS = 'https://docs.meta-mart.org/';
 export const URL_GITHUB_REPO = 'https://github.com/meta-mart/MetaMart';

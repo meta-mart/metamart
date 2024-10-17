@@ -132,7 +132,7 @@ public class TestDefinitionResourceTest
         .withName(name)
         .withDescription(name)
         .withEntityType(TestDefinitionEntityType.COLUMN)
-        .withTestPlatforms(List.of(TestPlatform.OPEN_METADATA));
+        .withTestPlatforms(List.of(TestPlatform.META_MART));
   }
 
   @Override

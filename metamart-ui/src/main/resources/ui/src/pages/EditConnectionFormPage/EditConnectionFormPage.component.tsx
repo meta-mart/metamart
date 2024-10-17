@@ -27,7 +27,7 @@ import TitleBreadcrumb from '../../components/common/TitleBreadcrumb/TitleBreadc
 import { TitleBreadcrumbProps } from '../../components/common/TitleBreadcrumb/TitleBreadcrumb.interface';
 import ServiceConfig from '../../components/Settings/Services/ServiceConfig/ServiceConfig';
 import { GlobalSettingsMenuCategory } from '../../constants/GlobalSettings.constants';
-import { OPEN_METADATA } from '../../constants/Services.constant';
+import { META_MART } from '../../constants/Services.constant';
 import { TabSpecificField } from '../../enums/entity.enum';
 import { ServiceCategory } from '../../enums/service.enum';
 import { useFqn } from '../../hooks/useFqn';
@@ -52,7 +52,7 @@ function EditConnectionFormPage() {
   const { fqn: serviceFQN } = useFqn();
 
   const isMetaMartService = useMemo(
-    () => serviceFQN === OPEN_METADATA,
+    () => serviceFQN === META_MART,
     [serviceFQN]
   );
 
@@ -174,7 +174,7 @@ function EditConnectionFormPage() {
           data={serviceDetails as ServicesData}
           disableTestConnection={
             ServiceCategory.METADATA_SERVICES === serviceCategory &&
-            OPEN_METADATA === serviceFQN
+            META_MART === serviceFQN
           }
           handleUpdate={handleConfigUpdate}
           serviceCategory={serviceCategory}

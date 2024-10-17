@@ -60,7 +60,7 @@ pipelineServiceClientConfiguration:
 
 {% note %}
 
-`AUTHENTICATION_PUBLIC_KEYS` and `AUTHENTICATION_CALLBACK_URL` refers to https://{your domain} this is referring to your OpenMetdata installation domain name
+`AUTHENTICATION_PUBLIC_KEYS` and `AUTHENTICATION_CALLBACK_URL` refers to https://{your domain} this is referring to your MetaMart installation domain name
 and please make sure to correctly put http or https depending on your installation.
 
 {% /note %}

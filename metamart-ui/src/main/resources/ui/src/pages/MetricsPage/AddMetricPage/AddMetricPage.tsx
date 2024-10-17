@@ -22,7 +22,7 @@ import TitleBreadcrumb from '../../../components/common/TitleBreadcrumb/TitleBre
 import SchemaEditor from '../../../components/Database/SchemaEditor/SchemaEditor';
 import { getEntityDetailsPath, ROUTES } from '../../../constants/constants';
 import { NAME_FIELD_RULES } from '../../../constants/Form.constants';
-import { OPEN_METADATA } from '../../../constants/service-guide.constant';
+import { META_MART } from '../../../constants/service-guide.constant';
 import { CSMode } from '../../../enums/codemirror.enum';
 import { EntityType } from '../../../enums/entity.enum';
 import {
@@ -335,7 +335,7 @@ const AddMetricPage = () => {
           <ServiceDocPanel
             activeField={activeField}
             serviceName="MetricEntity"
-            serviceType={OPEN_METADATA}
+            serviceType={META_MART}
           />
         ),
       }}

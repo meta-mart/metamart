@@ -330,7 +330,7 @@ export const COMMON_UI_SCHEMA = {
   },
 };
 
-export const OPEN_METADATA = 'MetaMart';
+export const META_MART = 'MetaMart';
 export const JWT_CONFIG = 'metaMartJWTClientConfig';
 
 export const SERVICE_CATEGORY_OPTIONS = map(ServiceCategory, (value) => ({

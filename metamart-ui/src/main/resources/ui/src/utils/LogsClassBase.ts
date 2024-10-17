@@ -15,7 +15,7 @@ import { isUndefined, startCase } from 'lodash';
 import { TableProfilerTab } from '../components/Database/Profiler/ProfilerDashboard/profilerDashboard.interface';
 import { getEntityDetailsPath } from '../constants/constants';
 import { GlobalSettingOptions } from '../constants/GlobalSettings.constants';
-import { OPEN_METADATA } from '../constants/service-guide.constant';
+import { META_MART } from '../constants/service-guide.constant';
 import { EntityTabs, EntityType } from '../enums/entity.enum';
 import { Pipeline } from '../generated/api/services/ingestionPipelines/createIngestionPipeline';
 import { IngestionPipeline } from '../generated/entity/services/ingestionPipelines/ingestionPipeline';
@@ -48,7 +48,7 @@ class LogsClassBase {
     ingestionDetails: IngestionPipeline | undefined
   ) {
     const updateIngestionName = Fqn.split(ingestionName);
-    if (updateIngestionName.includes(OPEN_METADATA) && ingestionDetails) {
+    if (updateIngestionName.includes(META_MART) && ingestionDetails) {
       return [
         {
           name: startCase(ingestionDetails.pipelineType),

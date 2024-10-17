@@ -190,4 +190,4 @@ export const EMAIL_CONFIG_SERVICE_CATEGORY = 'EmailConfiguration';
 export const CUSTOM_LOGO_CONFIG_SERVICE_CATEGORY = 'CustomLogoConfiguration';
 export const CUSTOM_LOGIN_CONFIG_SERVICE_CATEGORY = 'CustomLoginConfiguration';
 export const CUSTOM_PROPERTY_CATEGORY = 'CustomProperty';
-export const OPEN_METADATA = 'MetaMart';
+export const META_MART = 'MetaMart';

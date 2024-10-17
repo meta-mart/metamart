@@ -32,7 +32,7 @@ import {
 } from '../../constants/GlobalSettings.constants';
 import {
   EMAIL_CONFIG_SERVICE_CATEGORY,
-  OPEN_METADATA,
+  META_MART,
 } from '../../constants/service-guide.constant';
 import { ServiceCategory } from '../../enums/service.enum';
 import { SMTPSettings } from '../../generated/email/smtpSettings';
@@ -166,7 +166,7 @@ function EditEmailConfigPage() {
     <ServiceDocPanel
       activeField={activeField}
       serviceName={EMAIL_CONFIG_SERVICE_CATEGORY}
-      serviceType={OPEN_METADATA as ServiceCategory}
+      serviceType={META_MART as ServiceCategory}
     />
   );
 

@@ -37,7 +37,7 @@ class TestSecretsManagerFactory(TestCase):
 
     def test_get_not_implemented_secret_manager(self):
         with self.assertRaises(NotImplementedError) as not_implemented_error:
-            om_connection: MetaMartConnection = self.build_open_metadata_connection(
+            om_connection: MetaMartConnection = self.build_meta_mart_connection(
                 SecretsManagerProvider.db,
                 SecretsManagerClientLoader.noop,
             )
@@ -50,7 +50,7 @@ class TestSecretsManagerFactory(TestCase):
             )
 
     def test_get_none_secret_manager(self):
-        om_connection: MetaMartConnection = self.build_open_metadata_connection(
+        om_connection: MetaMartConnection = self.build_meta_mart_connection(
             SecretsManagerProvider.db,
             SecretsManagerClientLoader.noop,
         )
@@ -75,21 +75,21 @@ class TestSecretsManagerFactory(TestCase):
             if secret_manager_provider is not SecretsManagerProvider.in_memory
         ]
         for secret_manager_provider in secret_manager_providers:
-            open_metadata_connection: MetaMartConnection = MetaMartConnection(
+            meta_mart_connection: MetaMartConnection = MetaMartConnection(
                 secretsManagerProvider=secret_manager_provider,
                 secretsManagerLoader=SecretsManagerClientLoader.env,
                 hostPort="http://localhost:8585",
             )
             secrets_manager_factory = SecretsManagerFactory(
-                open_metadata_connection.secretsManagerProvider,
-                open_metadata_connection.secretsManagerLoader,
+                meta_mart_connection.secretsManagerProvider,
+                meta_mart_connection.secretsManagerLoader,
             )
             assert secrets_manager_factory.get_secrets_manager() is not None
             # Clear the instances to continue testing all the Secret Managers
             SecretsManagerFactory.clear_all()
 
     @staticmethod
-    def build_open_metadata_connection(
+    def build_meta_mart_connection(
         secret_manager_provider: SecretsManagerProvider,
         secret_manager_loader: SecretsManagerClientLoader,
     ) -> MetaMartConnection:

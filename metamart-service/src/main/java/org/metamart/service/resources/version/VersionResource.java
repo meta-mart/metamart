@@ -32,20 +32,20 @@ import org.metamart.service.resources.Collection;
 @Produces(MediaType.APPLICATION_JSON)
 @Collection(name = "version")
 public class VersionResource {
-  private static final MetaMartServerVersion OPEN_METADATA_SERVER_VERSION;
+  private static final MetaMartServerVersion META_MART_SERVER_VERSION;
 
   static {
-    OPEN_METADATA_SERVER_VERSION = new MetaMartServerVersion();
+    META_MART_SERVER_VERSION = new MetaMartServerVersion();
     try {
       InputStream fileInput = MetaMartApplication.class.getResourceAsStream("/catalog/VERSION");
       Properties props = new Properties();
       props.load(fileInput);
-      OPEN_METADATA_SERVER_VERSION.setVersion(props.getProperty("version", "unknown"));
-      OPEN_METADATA_SERVER_VERSION.setRevision(props.getProperty("revision", "unknown"));
+      META_MART_SERVER_VERSION.setVersion(props.getProperty("version", "unknown"));
+      META_MART_SERVER_VERSION.setRevision(props.getProperty("revision", "unknown"));
 
       String timestampAsString = props.getProperty("timestamp");
       Long timestamp = timestampAsString != null ? Long.valueOf(timestampAsString) : null;
-      OPEN_METADATA_SERVER_VERSION.setTimestamp(timestamp);
+      META_MART_SERVER_VERSION.setTimestamp(timestamp);
     } catch (Exception ie) {
       LOG.warn("Failed to read catalog version file");
     }
@@ -57,6 +57,6 @@ public class VersionResource {
       summary = "Get version of metadata service",
       description = "Get the build version of MetaMart service and build timestamp.")
   public MetaMartServerVersion getCatalogVersion() {
-    return OPEN_METADATA_SERVER_VERSION;
+    return META_MART_SERVER_VERSION;
   }
 }

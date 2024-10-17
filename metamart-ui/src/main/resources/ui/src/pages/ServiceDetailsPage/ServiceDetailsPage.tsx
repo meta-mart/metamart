@@ -49,7 +49,7 @@ import {
   ROUTES,
 } from '../../constants/constants';
 import {
-  OPEN_METADATA,
+  META_MART,
   SERVICE_INGESTION_PIPELINE_TYPES,
 } from '../../constants/Services.constant';
 import { usePermissionProvider } from '../../context/PermissionProvider/PermissionProvider';
@@ -158,7 +158,7 @@ const ServiceDetailsPage: FunctionComponent = () => {
     [serviceCategory]
   );
   const isMetaMartService = useMemo(
-    () => decodedServiceFQN === OPEN_METADATA,
+    () => decodedServiceFQN === META_MART,
     [decodedServiceFQN]
   );
   const { getEntityPermissionByFqn } = usePermissionProvider();
@@ -821,7 +821,7 @@ const ServiceDetailsPage: FunctionComponent = () => {
   const isTestingDisabled = useMemo(
     () =>
       !servicePermission.EditAll ||
-      (isMetadataService && decodedServiceFQN === OPEN_METADATA) ||
+      (isMetadataService && decodedServiceFQN === META_MART) ||
       isUndefined(connectionDetails),
     [
       servicePermission,

@@ -30,7 +30,7 @@ import { CONNECTORS_DOCS } from '../../../constants/docs.constants';
 import { NO_PERMISSION_FOR_ACTION } from '../../../constants/HelperTextUtil';
 import { PAGE_HEADERS } from '../../../constants/PageHeaders.constant';
 import {
-  OPEN_METADATA,
+  META_MART,
   servicesDisplayName,
 } from '../../../constants/Services.constant';
 import { usePermissionProvider } from '../../../context/PermissionProvider/PermissionProvider';
@@ -177,7 +177,7 @@ const Services = ({ serviceName }: ServicesProps) => {
         setServiceDetails(
           serviceName === ServiceCategory.METADATA_SERVICES
             ? services.filter(
-                (service) => service.fullyQualifiedName !== OPEN_METADATA
+                (service) => service.fullyQualifiedName !== META_MART
               )
             : services
         );

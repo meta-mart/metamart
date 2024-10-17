@@ -712,15 +712,15 @@ public class TestCaseResourceTest extends EntityResourceTest<TestCase, CreateTes
         0, allEntities.getData().size()); // we don't have any test cases with DEEQU platform
 
     queryParams.clear();
-    queryParams.put("testPlatforms", TestPlatform.OPEN_METADATA.value());
+    queryParams.put("testPlatforms", TestPlatform.META_MART.value());
     allEntities = listEntitiesFromSearch(queryParams, testCasesNum, 0, ADMIN_AUTH_HEADERS);
     assertEquals(
         testCasesNum,
-        allEntities.getData().size()); // we have all test cases with OPEN_METADATA platform
+        allEntities.getData().size()); // we have all test cases with META_MART platform
 
     queryParams.clear();
     queryParams.put(
-        "testPlatforms", String.format("%s,%s", TestPlatform.OPEN_METADATA, TestPlatform.DEEQU));
+        "testPlatforms", String.format("%s,%s", TestPlatform.META_MART, TestPlatform.DEEQU));
     allEntities = listEntitiesFromSearch(queryParams, testCasesNum, 0, ADMIN_AUTH_HEADERS);
     assertEquals(
         testCasesNum, allEntities.getData().size()); // Should return either values matching

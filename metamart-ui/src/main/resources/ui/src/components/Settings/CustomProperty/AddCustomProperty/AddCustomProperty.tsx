@@ -35,7 +35,7 @@ import { GlobalSettingsMenuCategory } from '../../../../constants/GlobalSettings
 import { CUSTOM_PROPERTY_NAME_REGEX } from '../../../../constants/regex.constants';
 import {
   CUSTOM_PROPERTY_CATEGORY,
-  OPEN_METADATA,
+  META_MART,
 } from '../../../../constants/service-guide.constant';
 import { EntityType } from '../../../../enums/entity.enum';
 import { ServiceCategory } from '../../../../enums/service.enum';
@@ -496,7 +496,7 @@ const AddCustomProperty = () => {
     <ServiceDocPanel
       activeField={activeField}
       serviceName={CUSTOM_PROPERTY_CATEGORY}
-      serviceType={OPEN_METADATA as ServiceCategory}
+      serviceType={META_MART as ServiceCategory}
     />
   );
 

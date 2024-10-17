@@ -15,7 +15,7 @@ import { ROUTES } from '../constants/constants';
 import {
   URL_GITHUB_REPO,
   URL_JOIN_SLACK,
-  URL_OPEN_METADATA_DOCS,
+  URL_META_MART_DOCS,
 } from '../constants/URL.constants';
 import navbarUtilClassBase from './NavbarUtilClassBase';
 
@@ -25,7 +25,7 @@ describe('NavbarUtilClassBase', () => {
     const stringifyResult = JSON.stringify(result);
 
     expect(stringifyResult).toContain(ROUTES.TOUR);
-    expect(stringifyResult).toContain(URL_OPEN_METADATA_DOCS);
+    expect(stringifyResult).toContain(URL_META_MART_DOCS);
     expect(stringifyResult).toContain(ROUTES.SWAGGER);
     expect(stringifyResult).toContain(URL_JOIN_SLACK);
     expect(stringifyResult).toContain(URL_GITHUB_REPO);
