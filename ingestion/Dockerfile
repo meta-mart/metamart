@@ -84,8 +84,9 @@ RUN pip install "metamart-ingestion~=${RI_VERSION}"
 
 # Temporary workaround for https://github.com/meta-mart/MetaMart/issues/9593
 RUN [ $(uname -m) = "x86_64" ] \
-  && pip install "metamart-ingestion[db2]~=${RI_VERSION}" \
+  && pip install "metamart-ingestion~=${RI_VERSION}" \
   || echo "DB2 not supported on ARM architectures."
+#  && pip install "metamart-ingestion[db2]~=${RI_VERSION}" \
 
 # bump python-daemon for https://github.com/apache/airflow/pull/29916
 RUN pip install "python-daemon>=3.0.0"

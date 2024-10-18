@@ -84,7 +84,8 @@ ARG INGESTION_DEPENDENCY="all"
 ARG RI_VERSION="1.6.0.0.dev0"
 RUN pip install --upgrade pip
 RUN pip install "metamart-ingestion[airflow]~=${RI_VERSION}"
-RUN pip install "metamart-ingestion[${INGESTION_DEPENDENCY}]~=${RI_VERSION}"
+RUN pip install "metamart-ingestion~=${RI_VERSION}"
+RUN #pip install "metamart-ingestion[${INGESTION_DEPENDENCY}]~=${RI_VERSION}"
 
 
 # Temporary workaround for https://github.com/meta-mart/MetaMart/issues/9593
